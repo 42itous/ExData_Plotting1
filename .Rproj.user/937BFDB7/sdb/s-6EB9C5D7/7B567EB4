@@ -1,0 +1,17 @@
+{
+    "contents" : "\n# I don't usually like giving the user much freedom, but I guess letting him/her/monkey\n# choose the file is less painful than actually figuring out how to upload it!\ndata = read.table(file.choose(),header=TRUE,na.strings=\"?\",sep=\";\")\ngoodDate = (data[1]==\"1/2/2007\") | (data[1]==\"2/2/2007\")\n\n\n\n# Date and Time Columns (for valid dates) shall now be pasted as strings and converted to date time format.\n\ntime = strptime(paste(data[,\"Date\"][goodDate], data[,\"Time\"][goodDate],sep=\"\") ,\"%d/%m/%Y%H:%M:%S\")\n\n# Why in a single line? Coz I like savin those lines for ma precious comments, 'course!\n\n\n\n\n# Y axis parameter for valid dates shall now be converted to a numeric format\nglobalActPr= as.numeric(data[,\"Global_active_power\"][goodDate])\n\n\n# Ever felt bad about duplicate data? \nrm(data)\n\n# How about redundant data?\nrm(goodDate)\n\n# Therapeutic. Isn't it?\n\n\npng(filename=\"plot2.png\",width=480,height=480,units=\"px\")\nplot(time,globalActPr,col=\"black\",ylab=\"Global Active Power(kilowatts)\",xlab=\"\",type=\"l\")\ndev.off()\n\n#Deleting can be morbidly fun\nrm(list=ls())\n\n#Just like the swirl guru says, Leave nothing behind but pngs... or was it toe nails??",
+    "created" : 1423388314380.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "3094870202",
+    "id" : "7B567EB4",
+    "lastKnownWriteTime" : 1423388160,
+    "path" : "C:/Data/Coursera/Current/Data_Science/Exploratory_Data_Analysis/Projects/Project1/ExData_Plotting1/plot2.R",
+    "project_path" : "plot2.R",
+    "properties" : {
+        "tempName" : "Untitled1"
+    },
+    "source_on_save" : false,
+    "type" : "r_source"
+}

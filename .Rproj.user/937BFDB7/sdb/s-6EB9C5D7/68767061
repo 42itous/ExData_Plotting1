@@ -1,0 +1,17 @@
+{
+    "contents" : "# Silent treatment for you on this one.\ndata = read.table(file.choose(),header=TRUE,na.strings=\"?\",sep=\";\")\n# Just Kidding. I would never do that to you.\n\ngoodDate = (data[1]==\"1/2/2007\") | (data[1]==\"2/2/2007\")\n# I may have copy-pasted my own code. I feel so ... violated.\n\n\n\n#Do you know why I'm creating these columns?\n\nSub_metering_1= data[,\"Sub_metering_1\"][goodDate]\nSub_metering_2= data[,\"Sub_metering_2\"][goodDate]\nSub_metering_3= data[,\"Sub_metering_3\"][goodDate]\n\n# To delete stuff, of course.\n\n\n\ntime = strptime(paste(data[,\"Date\"][goodDate], data[,\"Time\"][goodDate],sep=\"\") ,\"%d/%m/%Y%H:%M:%S\")\n# Not pointing fingers here, but had someone not mindlessly deleted this from the work environment in the previous exercise,\n# we wouldn't have had to go through the whole date selection, colummn pasting, string- date conversion process all over again.  \n\n\n#Coming to think of it, the same can be said about the data variable\nrm(data)\n\n\n\n# And the goodDate variable...\nrm(goodDate)\n\n# Gratification always trumps good sense. Sigh.\n\ngoodColors = c(\"black\",\"red\",\"blue\")\n# Don't, say it.\n\n\n\n# \"Plot\", \"lines\". \"Lines\" and legend\n#Will resume deleting stuff, in just a second\npng(filename=\"plot3.png\",width=480,height=480,units=\"px\")\n\n\n  plot(time,Sub_metering_1,col=goodColors[1],ylab=\"Energy sub metering\",xlab=\"\",type=\"l\")\n \n  lines(time,Sub_metering_2,col=goodColors[2])\n \n  lines(time,Sub_metering_3,col=goodColors[3])\n\n  legend(\"topright\", lty=1, col=goodColors, legend=c(\"Sub_metering_1\",\"Sub_metering_2\",\"Sub_metering_3\"))\n\ndev.off()\n\n\n# :-) \n\nrm(list=ls())\n",
+    "created" : 1423399410385.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "1209057659",
+    "id" : "68767061",
+    "lastKnownWriteTime" : 1423400722,
+    "path" : "C:/Data/Coursera/Current/Data_Science/Exploratory_Data_Analysis/Projects/Project1/ExData_Plotting1/plot3.R",
+    "project_path" : "plot3.R",
+    "properties" : {
+        "tempName" : "Untitled1"
+    },
+    "source_on_save" : false,
+    "type" : "r_source"
+}

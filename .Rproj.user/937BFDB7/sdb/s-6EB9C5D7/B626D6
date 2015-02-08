@@ -1,0 +1,17 @@
+{
+    "contents" : "\n# file.choose() lets one select the file path at runtime. It also lets me cleverly hide from you any inappropriate name I\n# may have given to my data directory.\ndata <- read.table(file.choose(),header=TRUE,na.strings=\"?\",sep=\";\")\n\ngoodDate = (data[1]==\"1/2/2007\") | (data[1]==\"2/2/2007\")\n# Why \"good\" Date? I ran out of adjectives, alright! Don't judge me!\n\n\ndata[,\"Global_active_power\"] = as.numeric(data[,\"Global_active_power\"])\n\n\n# Time for Planning and plotting\npng(filename=\"plot1.png\",width=480,height=480,units=\"px\")\nhist(data[\"Global_active_power\"][goodDate],col=\"red\",xlab=\"Global Active Power(kilowatts)\",ylab=\"Frequency\",main=\"Global Active Power\")\ndev.off()\n# It's alive! Muhuhahahaha\n\n# Psst. Lemme show you something\nrm(list= ls())\n# I deleted stuff *_*",
+    "created" : 1423386826845.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "3416995738",
+    "id" : "B626D6",
+    "lastKnownWriteTime" : 1423399352,
+    "path" : "C:/Data/Coursera/Current/Data_Science/Exploratory_Data_Analysis/Projects/Project1/ExData_Plotting1/plot1.R",
+    "project_path" : "plot1.R",
+    "properties" : {
+        "tempName" : "Untitled1"
+    },
+    "source_on_save" : false,
+    "type" : "r_source"
+}
